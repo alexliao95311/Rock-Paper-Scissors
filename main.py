@@ -1,47 +1,29 @@
-#Import modules
-import time
 import random
 
-#Welcome Screen
-print('''
-        WELCOME TO ROCK PAPER SCISSORS
-----------------------------------------------
-
-        Please select an option:
-    1. Play
-    2. How to Play
-    3. Credits
-    4. High Scores
-    5. Exit
-
-
-''')
-
-main_choice = input('Please enter the number that matches your choice:\n')
-#Make sure that user enters a number
 while True:
-    try:
-        int(main_choice)
+    user_action = input("Enter a choice (rock, paper, scissors): ")
+    possible_actions = ["rock", "paper", "scissors"]
+    computer_action = random.choice(possible_actions)
+    print(f"\nYou chose {user_action}, computer chose {computer_action}.\n")
+
+    if user_action == computer_action:
+        print(f"Both players selected {user_action}. It's a tie!")
+    elif user_action == "rock":
+        if computer_action == "scissors":
+            print("Rock smashes scissors! You win!")
+        else:
+            print("Paper covers rock! You lose.")
+    elif user_action == "paper":
+        if computer_action == "rock":
+            print("Paper covers rock! You win!")
+        else:
+            print("Scissors cuts paper! You lose.")
+    elif user_action == "scissors":
+        if computer_action == "paper":
+            print("Scissors cuts paper! You win!")
+        else:
+            print("Rock smashes scissors! You lose.")
+
+    play_again = input("Play again? (y/n): ")
+    if play_again.lower() != "y":
         break
-    except:
-        main_choice = input('Please enter a NUMBER:\n')
-
-
-#Play
-if main_choice == 1:
-
-#How to Play
-elif main_choice == 2:
-
-
-#Credits
-elif main_choice == 3:
-
-#High Scores
-elif main_choice == 4:
-        
-#Exit
-elif main_choice == 5:
-    print('Goodbye, you are just mad that you lost all of your matches...')
-
-    
